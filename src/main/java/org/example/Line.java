@@ -23,7 +23,7 @@ public class Line {
                 "}";
     }
 
-    public double getLength(){
+    public double getLength() {
         int a = coordinateEnd.coordinateX - coordinateOrigin.coordinateX;
         int b = coordinateEnd.coordinateY - coordinateOrigin.coordinateY;
         return Math.sqrt(a * a + b * b);
