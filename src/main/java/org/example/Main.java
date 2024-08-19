@@ -2,13 +2,12 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Point point1 = new Point(1,3);
-        Point point2 = new Point(1,3);
-        Point point3 = new Point(5,8);
-        System.out.println(point1);
-        System.out.println(point2);
-        System.out.println(point3);
-        System.out.println(point1==point2);
-        System.out.println(point1==point3);
+        //Fraction f0 = new Fraction(7, 0);
+        Fraction f1 = new Fraction(1, 3); // 1/3
+        Fraction f2 = new Fraction(2, 5); // 2/5
+        Fraction f3 = new Fraction(7, 8); // 7/8
+
+        Fraction result = f1.sum(f2).sum(f3).diff(5);
+        System.out.println("Результат: " + result);
     }
 }
