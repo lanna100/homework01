@@ -15,13 +15,24 @@ public class Point {
     }
 }
 
+class Point3D extends Point {
+    int coordinateZ;
 
-/*Создайте класс Точка, расположенную на двумерной плоскости, которая описывается:
+    public Point3D(int coordinateX, int coordinateY, int coordinateZ) {
+        super(coordinateX, coordinateY);
+        this.coordinateZ = coordinateZ;
+    }
 
-Координата Х: число
-Координата Y: число
-При создании требует указать обе координаты
-Может возвращать текстовое представление вида “{X;Y}”
-Далее необходимо создать три объекта точки: {1;3} {1;3} {5;8}
+    @Override
+    public String toString() {
+        return "Point3D{" +
+                "coordinateX=" + coordinateX +
+                ", coordinateY=" + coordinateY+
+                ", coordinateZ=" + coordinateZ +
+                "}";
+    }
+}
 
-Выведите на экран текстовое представление этих точек и результат сравнения точек между собой. Убедитесь, что оба сравнения дали false.*/
+
+
+
