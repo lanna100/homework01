@@ -1,6 +1,6 @@
 package org.example;
 
-public class Fraction {
+class Fraction extends Number {
     private final int numerator;
     private final int denominator;
 
@@ -37,4 +37,23 @@ public class Fraction {
                 "/" + denominator;
     }
 
-   }
+    @Override
+    public int intValue() {
+        return numerator / denominator;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numerator / denominator;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) numerator / denominator;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numerator / denominator;
+    }
+}

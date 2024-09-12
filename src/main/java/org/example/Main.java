@@ -9,5 +9,10 @@ public class Main {
 
         Fraction result = f1.sum(f2).sum(f3).diff(5);
         System.out.println("Результат: " + result);
+
+        System.out.println(f1.intValue());
+        System.out.println(f1.doubleValue());
+        System.out.println(f1.longValue());
+        System.out.println(f1.floatValue());
     }
 }
