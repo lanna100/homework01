@@ -56,4 +56,13 @@ class Fraction extends Number {
     public double doubleValue() {
         return (double) numerator / denominator;
     }
+
+    public static double sumAll(Number... numbers) {
+        double sum = 0;
+        for (Number number : numbers) {
+            sum += number.doubleValue();
+        }
+        return sum;
+    }
+
 }
