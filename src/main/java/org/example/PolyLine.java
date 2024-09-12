@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 
-public class PolyLine {
+public class PolyLine implements Measurable {
     Point[] points;
 
     public PolyLine(Point[] points) {
@@ -33,9 +33,12 @@ public class PolyLine {
     }
 }
 
-class ClosedPolyLine extends PolyLine{
+class ClosedPolyLine extends PolyLine implements Measurable{
     public ClosedPolyLine(Point[] points) {
         super(points);
+        /*if (points.length > 0 && !points[0].equals(points[points.length - 1])) {
+            throw new IllegalArgumentException("Это не замкнутая линия. Первый и последний элементы должны совпадать для замкнутой ломаной.");
+        }*/
     }
     public String toString() {
         return super.toString() + " + последняя точка " +

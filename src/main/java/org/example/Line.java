@@ -1,6 +1,6 @@
 package org.example;
 
-public class Line {
+public class Line implements Measurable {
     Point coordinateOrigin;
     Point coordinateEnd;
 
