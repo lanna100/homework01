@@ -2,11 +2,18 @@ package ru.courses.main;
 import ru.courses.geometry.*;
 import ru.courses.geometry.interfaces.Measurable;
 import java.util.Arrays;
-import java.lang.Integer;
-import java.lang.Math;
+
 
 public class Main {
     public static void main(String[] args) {
+        //Для задания 4: Простые имена
+        Point myGeometryPoint = new Point(2, 3);
+        java.awt.Point myAwtPoint = new java.awt.Point(4, 5);
+
+        System.out.println("Точка из ru.courses.geometry: " + myGeometryPoint);
+        System.out.println("Точка из java.awt: " + myAwtPoint);
+
+        //Для задания 3: Возведение в степень
         if (args.length < 2) {
             System.out.println("Требуются два аргумента.");
             return;
@@ -16,8 +23,9 @@ public class Main {
         String yStr = args[1];
         double result = calculatePower(xStr, yStr);
 
-        System.out.println("Результат " + xStr + " в степени " + yStr + " = " + result);
+        System.out.println("Raising the number " + xStr + " to the power " + yStr + " = " + result);
 
+        //Предыдущие задания:
         /*Point point1 = new Point(1,3);
         Point point2 = new Point(5,8);
 
