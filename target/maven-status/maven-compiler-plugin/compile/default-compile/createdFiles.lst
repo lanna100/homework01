@@ -1,0 +1,6 @@
+ru\courses\geometry\Line.class
+ru\courses\geometry\ClosedPolyLine.class
+ru\courses\geometry\PolyLine.class
+ru\courses\main\Main.class
+ru\courses\geometry\interfaces\Measurable.class
+ru\courses\geometry\Point.class
