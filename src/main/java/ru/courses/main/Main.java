@@ -6,14 +6,30 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        //Для задания 4: Простые имена
+        Point point1 = new Point(1, 2);
+        Point point2 = new Point(1, 2);
+        Point point3 = new Point(2, 1);
+
+        System.out.println("point1 equals point2: " + point1.equals(point2)); // true
+        System.out.println("point1 equals point3: " + point1.equals(point3)); // false
+
+        Point clonedPoint = null;
+        try {
+            clonedPoint = (Point) point1.clone();
+            System.out.println("Cloned point: " + clonedPoint);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("point1 equals clonedPoint: " + point1.equals(clonedPoint)); //true
+
+        /*Предыдущие задания:
         Point myGeometryPoint = new Point(2, 3);
         java.awt.Point myAwtPoint = new java.awt.Point(4, 5);
 
         System.out.println("Точка из ru.courses.geometry: " + myGeometryPoint);
         System.out.println("Точка из java.awt: " + myAwtPoint);
 
-        //Для задания 3: Возведение в степень
         if (args.length < 2) {
             System.out.println("Требуются два аргумента.");
             return;
@@ -25,8 +41,7 @@ public class Main {
 
         System.out.println("Raising the number " + xStr + " to the power " + yStr + " = " + result);
 
-        //Предыдущие задания:
-        /*Point point1 = new Point(1,3);
+        Point point1 = new Point(1,3);
         Point point2 = new Point(5,8);
 
         Line line = new Line(point1,point2);
