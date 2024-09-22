@@ -44,6 +44,22 @@ public class Main {
         //сравнение с клонированной линией
         System.out.println("line1 equals clonedLine: " + line1.equals(clonedLine)); //true
 
+        //точки для ломаных линий
+        Point p1 = new Point(1, 2);
+        Point p2 = new Point(3, 4);
+        Point p3 = new Point(5, 6);
+        //массивы точек
+        Point[] points1 = {p1, p2, p3};
+        Point[] points2 = {p1, p2, p3};
+        Point[] points3 = {p2, p1, p3};
+        //ломаные линии
+        PolyLine polyline1 = new PolyLine(points1);
+        PolyLine polyline2 = new PolyLine(points2);
+        PolyLine polyline3 = new PolyLine(points3);
+        // Сравнение ломаных линий
+        System.out.println("polyline1 equals polyline2: " + polyline1.equals(polyline2)); // true
+        System.out.println("polyline1 equals polyline3: " + polyline1.equals(polyline3));// false
+
         /*Предыдущие задания:
         Point myGeometryPoint = new Point(2, 3);
         java.awt.Point myAwtPoint = new java.awt.Point(4, 5);
