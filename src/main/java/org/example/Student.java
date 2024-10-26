@@ -1,22 +1,20 @@
 package org.example;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 public class Student {
+    @Getter @Setter
     private String name;
-    private List<Integer> grades= new ArrayList<>();
+    private List<Integer> grades = new ArrayList<>();
+    private GradeService gradeService; // Внедрение зависимости
 
-    public Student(String name) {
+    public Student(String name, GradeService gradeService) {
         this.name = name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
+        this.gradeService = gradeService;
     }
 
     public List<Integer> getGrades() {
@@ -24,7 +22,7 @@ public class Student {
     }
 
     public void addGrade(int grade) {
-        if (grade < 2 || grade > 5) {
+        if (!gradeService.checkGrade(grade)) {
             throw new IllegalArgumentException(grade + " is wrong grade");
         }
         grades.add(grade);

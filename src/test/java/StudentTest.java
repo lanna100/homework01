@@ -1,3 +1,5 @@
+import org.mockito.Mockito;
+import org.example.GradeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,15 +9,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentTest {
     private Student student;
+    private GradeService gradeService;
 
     @BeforeEach
     void setUp() {
-        student = new Student("Anna Laryushkina");
+        gradeService = Mockito.mock(GradeService.class);
+        student = new Student("Anna Laryushkina",gradeService);
     }
 
     @Test
     @DisplayName("Добавление корректных оценок")
     void testAddCorrectGrade() {
+        Mockito.when(gradeService.checkGrade(5)).thenReturn(true);
+        Mockito.when(gradeService.checkGrade(2)).thenReturn(true);
+
         student.addGrade(5);
         assertEquals(1, student.getGrades().size());
         assertEquals(List.of(5), student.getGrades());
@@ -28,6 +35,9 @@ public class StudentTest {
     @Test
     @DisplayName("Добавление невалидных оценок")
     void testAddGradeInvalid() {
+        Mockito.when(gradeService.checkGrade(6)).thenReturn(false);
+        Mockito.when(gradeService.checkGrade(1)).thenReturn(false);
+
         assertThrows(IllegalArgumentException.class, () -> student.addGrade(6), "6 is wrong grade");
         assertThrows(IllegalArgumentException.class, () -> student.addGrade(1), "1 is wrong grade");
     }
@@ -35,16 +45,18 @@ public class StudentTest {
     @Test
     @DisplayName("Неизменяемость списка оценок")
     void testGetGradesImmutable() {
+        Mockito.when(gradeService.checkGrade(4)).thenReturn(true);
         student.addGrade(4);
-        List<Integer> grades = student.getGrades();
 
+        var grades = student.getGrades();
         assertThrows(UnsupportedOperationException.class, () -> grades.clear(), "Should not allow modification");
     }
 
     @Test
     @DisplayName("Проверка Equals и HashCode")
     void testEqualsAndHashCode() {
-        Student anotherStudent = new Student("Anna Laryushkina");
+        Mockito.when(gradeService.checkGrade(5)).thenReturn(true);
+        Student anotherStudent = new Student("Anna Laryushkina",gradeService);
         anotherStudent.addGrade(5);
         student.addGrade(5);
 
@@ -58,6 +70,7 @@ public class StudentTest {
     @Test
     @DisplayName("Проверка ToString")
     void testToString() {
+        Mockito.when(gradeService.checkGrade(4)).thenReturn(true);
         student.addGrade(4);
         assertEquals("Student{name=Anna Laryushkina, marks=[4]}", student.toString());
     }
